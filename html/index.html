@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Login and Registration Form in HTML | CodingNepal</title>
+      <link rel="stylesheet" href="\css\style.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <body> 
+      <div class="wrapper">
+         <div class="title-text">
+            <div class="title login">
+               SIGNUP FORM
+            </div>
+            <div class="title signup">
+               SIGNUP FORM
+            </div>
+         </div>
+         <div class="form-container">
+            <div class="slide-controls">
+               <input type="radio" name="slide" id="login" checked>
+               <input type="radio" name="slide" id="signup">
+               <label for="login" class="slide login">Login</label>
+               <label for="signup" class="slide signup">Register</label>
+               <div class="slider-tab"></div>
+            </div>
+            <div class="form-inner">
+               
+               <form action="#" class="login">
+                  <div class="field">
+                     <input type="text" placeholder="Email Address" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="Password" required>
+                  </div>
+                  <div class="pass-link">
+                     <a href="#">Forgot password?</a>
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Login">
+                  </div>
+                  <div class="signup-link">
+                     Not a member? <a href="">Register now</a>
+                  </div>
+               
+               </form>
+                
+               <form class="Signup">
+                  <div class="field">
+                     <input type="text" placeholder="Email Address" id = "em"required>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="Password" id ="pass"required>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="Confirm password" id="cpass" required>
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Register now" id="submit">
+                  </div>
+                  
+               </form>
+            </div>
+         </div>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+      <script>
+         const loginText = document.querySelector(".title-text .login");
+         const loginForm = document.querySelector("form.login");
+         const loginBtn = document.querySelector("label.login");
+         const signupBtn = document.querySelector("label.signup");
+         const signupLink = document.querySelector("form .signup-link a");
+         signupBtn.onclick = (()=>{
+           loginForm.style.marginLeft = "-50%";
+           loginText.style.marginLeft = "-50%";
+         });
+         loginBtn.onclick = (()=>{
+           loginForm.style.marginLeft = "0%";
+           loginText.style.marginLeft = "0%";
+         });
+         signupLink.onclick = (()=>{
+           signupBtn.click();
+           return false;
+         });
+      </script>
+      <SCRIPT>
+         $(document).ready(
+            function(){
+               $("#submit").click(
+                  function()
+                  {
+                     var v1=$("#em").val();
+                     var v2=$("#pass").val();
+                     var v3=$("#cpass").val();           
+            
+            var url="http://localhost/register/GUVI/php/login.php?em="+v1 + "&pass=" + v2 + "&cpass=" + v3;
+            alert(url);
+           $.get(url,function(data,success)
+           {
+               alert(data);
+               $("#content").html(data);
+           })
+                  }             
+               )
+            })
+         
+         
+    </SCRIPT>
+   </body>
+</html>
+
+  
